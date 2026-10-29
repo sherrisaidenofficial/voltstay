@@ -39,16 +39,16 @@ export function Filters({ filters }: { filters: SearchFilters }) {
     router.replace(`${pathname}${params.size ? `?${params}` : ""}`, { scroll: false });
   }
 
-  const trigger = "h-9 min-w-36 bg-card";
+  const trigger = "h-9 min-w-36 bg-card focus-visible:ring-volt/40";
 
   return (
     <div className="flex flex-wrap items-center gap-2">
       <Select items={PRICES} value={filters.maxPrice ? String(filters.maxPrice) : ANY} onValueChange={(v) => update({ maxPrice: v === ANY ? undefined : Number(v) })}>
-        <SelectTrigger aria-label="Maximum price" className={trigger}><SelectValue /></SelectTrigger>
+        <SelectTrigger aria-label="Maximum price" className={cn(trigger, "focus-visible:ring-volt/40")}><SelectValue /></SelectTrigger>
         <SelectContent>{PRICES.map((o) => <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>)}</SelectContent>
       </Select>
       <Select items={POWERS} value={filters.minPowerKw ? String(filters.minPowerKw) : ANY} onValueChange={(v) => update({ minPowerKw: v === ANY ? undefined : Number(v) })}>
-        <SelectTrigger aria-label="Minimum power" className={trigger}><SelectValue /></SelectTrigger>
+        <SelectTrigger aria-label="Minimum power" className={cn(trigger, "focus-visible:ring-volt/40")}><SelectValue /></SelectTrigger>
         <SelectContent>{POWERS.map((o) => <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>)}</SelectContent>
       </Select>
       <button
@@ -66,7 +66,7 @@ export function Filters({ filters }: { filters: SearchFilters }) {
       <div className="ml-auto flex items-center gap-2 text-sm text-muted-foreground">
         <span>Sort</span>
         <Select items={SORTS} value={filters.sort} onValueChange={(v) => update({ sort: v as SortKey })}>
-          <SelectTrigger aria-label="Sort results" className={trigger}><SelectValue /></SelectTrigger>
+          <SelectTrigger aria-label="Sort results" className={cn(trigger, "focus-visible:ring-volt/40")}><SelectValue /></SelectTrigger>
           <SelectContent>{SORTS.map((o) => <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>)}</SelectContent>
         </Select>
       </div>
