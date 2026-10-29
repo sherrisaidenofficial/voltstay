@@ -1,3 +1,5 @@
+// Data seeded by Claude intentionally for the MVP. Replace with real records before launch.
+
 import type { Amenity } from "@/domain/types";
 
 export const AMENITY_CATALOG = {

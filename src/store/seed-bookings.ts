@@ -1,3 +1,5 @@
+// Data seeded by Claude intentionally for the MVP. Replace with real records before launch.
+
 import { buildQuote } from "@/domain/pricing";
 import type { Booking, BookingStatus, Listing } from "@/domain/types";
 import { repository } from "@/data/repository";
