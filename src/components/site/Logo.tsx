@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-/** Wordmark: a plug-shaped mark followed by the name. */
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2 font-bold tracking-tight text-foreground">

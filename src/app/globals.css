@@ -54,7 +54,6 @@
 }
 
 :root {
-  /* Voltstay palette: harbor ink, fog canvas, cobalt current, kelp and signal status tones. */
   --background: #f4f6f8;
   --foreground: #0e1a2b;
   --card: #ffffff;
