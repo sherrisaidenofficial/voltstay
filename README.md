@@ -24,29 +24,88 @@ The first market is the Interstate 5 corridor on the US West Coast: Seattle, Por
 
 There is no sign-in. Every visitor is the demo guest Jordan Reyes, and the hosting page is the demo host Maya Lindqvist.
 
+## What is not in the MVP
+
+Deliberate gaps so the pilot stays small. Each has a plan in the production section below.
+
+- **No sign-in.** Everyone is the demo guest Jordan Reyes, and `/host` is the demo host Maya Lindqvist.
+- **No persistence.** Bookings created in the session live in React state and reset on a hard reload. The seed data reappears.
+- **No real payments.** The booking page says "pay the host at the charger". The service-fee line in the price breakdown exists but is set to zero.
+- **No messaging.** A driver cannot ask the host a question before booking.
+- **No notifications.** Hosts see new requests only when they open the hosting page.
+- **No real map.** Chargers are listed on cards and reached from a corridor rail. There is no map view with pins.
+- **No photo upload.** Listing artwork is a generated gradient per listing.
+- **Search is by city, not address.** The driver picks a city from a list rather than typing a street.
+- **No reviews after a trip.** Existing reviews are seeded; the UI does not collect new ones yet.
+- **One time zone.** Hours render in the browser's local time. A driver in Seattle booking San Diego sees local, which is fine on the West Coast but would break across regions.
+
 ## Seeded data
 
 All records in `src/data` and the bookings in `src/store/seed-bookings.ts` were seeded by Claude intentionally for the MVP. Every file carries that notice on its first line. Hosts, addresses, prices, reviews and bookings are invented so the product can be explored end to end, and they should be replaced by real records before launch. Prices sit inside realistic 2026 West Coast bands (Level 2 at $0.20 to $0.45 per kWh, DC fast at $0.35 to $0.65 per kWh) so the quotes feel plausible.
 
-## Getting started
+## Running locally
 
-Requires Node 22 or newer.
+Everything runs in the browser. No database, no API key, no services to spin up.
+
+### Prerequisites
+
+- **Node.js 22 or newer.** Install from [nodejs.org](https://nodejs.org) or with `nvm install 22`. Check with `node -v`.
+- **npm 10 or newer.** Ships with Node 22. Check with `npm -v`.
+- **Git.** Only needed if you are cloning rather than downloading a zip.
+
+### 1. Get the code
+
+```bash
+git clone https://github.com/sherrisaidenofficial/voltstay.git
+cd voltstay
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
+```
+
+This takes about a minute on a fresh machine. It installs Next.js, Tailwind, shadcn/ui components, Vitest and the lint toolchain.
+
+### 3. Start the dev server
+
+```bash
 npm run dev
 ```
 
-Open http://localhost:3000.
+Open http://localhost:3000. The page hot-reloads on save, so edits in `src/` appear in the browser within a second. Press Ctrl+C in the terminal to stop.
 
-Other commands:
+### 4. Preview the production build (optional)
 
 ```bash
-npm run build      # static export into out/
-npm test           # domain unit tests (vitest)
-npm run lint       # eslint
-npm run typecheck  # tsc --noEmit
+npm run build
+npx serve out
 ```
+
+This builds the static site into `out/` and serves it on http://localhost:3000. It is the exact output that gets deployed to GitHub Pages, so if something behaves differently in production, reproduce it here first.
+
+### Everyday commands
+
+| Command | What it does |
+|---|---|
+| `npm run dev` | Dev server with hot reload |
+| `npm run build` | Static export into `out/` |
+| `npm run lint` | ESLint, same rules CI runs |
+| `npm run typecheck` | `tsc --noEmit` strict check |
+| `npm test` | Vitest unit tests for the domain layer, 28 cases |
+
+### Troubleshooting
+
+**Port 3000 is already in use.** Start on another port with `npm run dev -- -p 3100`.
+
+**`node: command not found` or Node version error.** You are on an older Node. Run `nvm install 22 && nvm use 22`, then retry `npm install`.
+
+**`npm install` fails on a peer dependency.** Delete `node_modules` and `package-lock.json`, then run `npm install` again.
+
+**Stale build after dependency changes.** Delete `.next/` and `out/`, then `npm run dev` or `npm run build` fresh.
+
+**Links point to `/voltstay/...` locally.** You set `NEXT_PUBLIC_BASE_PATH` in your environment. Unset it (`unset NEXT_PUBLIC_BASE_PATH`) and restart the dev server. The base path is only used when building for GitHub Pages.
 
 ## Deploying
 
