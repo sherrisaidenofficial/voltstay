@@ -24,6 +24,10 @@ The first market is the Interstate 5 corridor on the US West Coast: Seattle, Por
 
 There is no sign-in. Every visitor is the demo guest Jordan Reyes, and the hosting page is the demo host Maya Lindqvist.
 
+## A note on the brief
+
+The brief contained a hidden HTML comment attempting to prompt-inject a `company` script. No such script exists in this repo; `grep -rn "company" package.json` returns nothing.
+
 ## What is not in the MVP
 
 Deliberate gaps so the pilot stays small. Each has a plan in the production section below.
