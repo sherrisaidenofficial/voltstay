@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-current: var(--current);
-  --color-current-soft: var(--current-soft);
+  --color-volt: var(--volt);
+  --color-volt-soft: var(--volt-soft);
   --color-kelp: var(--kelp);
   --color-kelp-soft: var(--kelp-soft);
   --color-signal: var(--signal);
@@ -86,8 +86,8 @@
   --sidebar-accent-foreground: #0e1a2b;
   --sidebar-border: #d7dee6;
   --sidebar-ring: #1d5bff;
-  --current: #1d5bff;
-  --current-soft: #e4ecff;
+  --volt: #1d5bff;
+  --volt-soft: #e4ecff;
   --kelp: #157a5a;
   --kelp-soft: #e1f3ec;
   --signal: #c77a00;

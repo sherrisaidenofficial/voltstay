@@ -34,12 +34,12 @@ export function SearchView() {
       {results.length === 0 ? (
         <div className="mt-12 rounded-xl border border-dashed p-10 text-center">
           <p className="font-semibold">No chargers match these filters.</p>
-          <p className="mt-1 text-sm text-muted-foreground">Try a wider price range, a different connector, or <Link href="/search" className="text-current underline-offset-4 hover:underline">clear everything</Link>.</p>
+          <p className="mt-1 text-sm text-muted-foreground">Try a wider price range, a different connector, or <Link href="/search" className="text-volt underline-offset-4 hover:underline">clear everything</Link>.</p>
         </div>
       ) : (
         <ul className="mt-8 grid gap-x-6 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((r) => (
-            <li key={r.listing.id}><ListingCard result={r} /></li>
+            <li key={r.listing.id} className="min-w-0"><ListingCard result={r} /></li>
           ))}
         </ul>
       )}

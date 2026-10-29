@@ -10,7 +10,7 @@ export function FeaturedListings() {
     <section aria-labelledby="featured-heading">
       <div className="flex items-end justify-between gap-4">
         <h2 id="featured-heading" className="text-2xl font-bold">Well-reviewed this month</h2>
-        <Link href="/search" className="text-sm font-semibold text-current underline-offset-4 hover:underline">See all chargers</Link>
+        <Link href="/search" className="shrink-0 text-sm font-semibold text-volt underline-offset-4 hover:underline">See all chargers</Link>
       </div>
       <div className="mt-6 grid gap-x-6 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
         {results.map((r) => (

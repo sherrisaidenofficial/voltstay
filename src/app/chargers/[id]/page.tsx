@@ -46,7 +46,7 @@ export default async function ListingPage({ params }: PageProps<"/chargers/[id]"
         <Rating rating={rating} withCount />
         <span className="text-muted-foreground">{connector.label}</span>
         <span className="text-muted-foreground">{formatKw(listing.powerKw)}</span>
-        {listing.instantBook && <span className="inline-flex items-center gap-1 font-semibold text-current"><Zap className="size-3.5 fill-current" aria-hidden />Instant book</span>}
+        {listing.instantBook && <span className="inline-flex items-center gap-1 font-semibold text-volt"><Zap className="size-3.5 fill-current" aria-hidden />Instant book</span>}
       </div>
 
       <ListingPhoto tone={listing.tone} className="mt-6 aspect-[21/9] rounded-2xl" />

@@ -105,7 +105,7 @@ function BookingForm({ listing }: { listing: Listing }) {
       <p className="text-2xl font-bold tabular">{formatRate(listing.pricePerKwh)}</p>
       <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
         {listing.instantBook ? (
-          <><Zap className="size-4 fill-current text-current" aria-hidden /> Confirmed as soon as you book</>
+          <><Zap className="size-4 fill-current text-volt" aria-hidden /> Confirmed as soon as you book</>
         ) : (
           <><Info className="size-4" aria-hidden /> The host confirms each request</>
         )}
@@ -176,7 +176,7 @@ function BookingForm({ listing }: { listing: Listing }) {
         {quote?.ok ? <QuoteSummary quote={quote.value} /> : <p className="text-sm text-muted-foreground">{quote ? Object.values(quote.errors)[0] : "Pick a date and time to see the price."}</p>}
       </div>
 
-      <Button size="lg" className="mt-5 h-11 w-full bg-current text-base text-white hover:bg-current/90" disabled={!quote?.ok} onClick={submit}>
+      <Button size="lg" className="mt-5 h-11 w-full bg-volt text-base text-white hover:bg-volt/90" disabled={!quote?.ok} onClick={submit}>
         {listing.instantBook ? "Book this slot" : "Request this slot"}
       </Button>
       <FieldError message={errors.listing ?? errors.status} />
@@ -192,7 +192,7 @@ function BookingForm({ listing }: { listing: Listing }) {
           </DialogDescription>
           <DialogFooter>
             <Button variant="outline" onClick={() => setCreated(null)}>Stay here</Button>
-            <Button render={<Link href="/trips" />}>Go to my trips</Button>
+            <Button nativeButton={false} render={<Link href="/trips" />}>Go to my trips</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

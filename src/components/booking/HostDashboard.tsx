@@ -61,7 +61,7 @@ export function HostDashboard() {
         <h2 className="text-xl font-bold">Your chargers</h2>
         <ul className="mt-4 grid gap-4 sm:grid-cols-2">
           {listings.map((l) => (
-            <li key={l.id} className="flex gap-4 rounded-xl border bg-card p-3">
+            <li key={l.id} className="flex min-w-0 gap-4 rounded-xl border bg-card p-3">
               <ListingPhoto tone={l.tone} className="aspect-square w-20 rounded-lg" />
               <div className="min-w-0">
                 <Link href={`/chargers/${l.id}`} className="block truncate font-semibold hover:underline">{l.title}</Link>

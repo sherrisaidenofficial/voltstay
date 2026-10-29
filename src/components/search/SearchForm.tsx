@@ -69,7 +69,7 @@ export function SearchForm({ initial = {}, size = "lg", className }: Props) {
           </SelectContent>
         </Select>
       </div>
-      <Button type="submit" size="lg" className={cn("bg-current text-white hover:bg-current/90", large ? "h-12 px-5 text-base sm:min-w-36" : "h-10")}>
+      <Button type="submit" size="lg" className={cn("bg-volt text-white hover:bg-volt/90", large ? "h-12 px-5 text-base sm:min-w-36" : "h-10")}>
         <Search aria-hidden />
         Find chargers
       </Button>

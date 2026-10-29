@@ -28,7 +28,7 @@ export function TripsView() {
       <BookingSection title="Past and cancelled" count={past.length} empty="Your completed charges will show up here.">
         {past.map((b) => <BookingCard key={b.id} booking={b} role="guest" counterpartName={hostName(b.hostId)} />)}
       </BookingSection>
-      <p className="text-sm text-muted-foreground">Signed in as {DEMO_GUEST.name} for this demo. <Link href="/search" className="text-current underline-offset-4 hover:underline">Book another charger</Link>.</p>
+      <p className="text-sm text-muted-foreground">Signed in as {DEMO_GUEST.name} for this demo. <Link href="/search" className="text-volt underline-offset-4 hover:underline">Book another charger</Link>.</p>
     </div>
   );
 }

@@ -57,7 +57,7 @@ export function Filters({ filters }: { filters: SearchFilters }) {
         onClick={() => update({ instantOnly: !filters.instantOnly })}
         className={cn(
           "inline-flex h-9 items-center gap-1.5 rounded-lg border px-3 text-sm font-medium transition-colors",
-          filters.instantOnly ? "border-current bg-current-soft text-current" : "bg-card text-foreground hover:bg-muted",
+          filters.instantOnly ? "border-volt bg-volt-soft text-volt" : "bg-card text-foreground hover:bg-muted",
         )}
       >
         <Zap className={cn("size-3.5", filters.instantOnly && "fill-current")} aria-hidden />
